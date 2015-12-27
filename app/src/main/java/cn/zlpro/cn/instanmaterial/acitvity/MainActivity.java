@@ -2,6 +2,7 @@ package cn.zlpro.cn.instanmaterial.acitvity;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -9,6 +10,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.animation.OvershootInterpolator;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -19,7 +21,7 @@ import cn.zlpro.cn.instanmaterial.R;
 import cn.zlpro.cn.instanmaterial.adapter.FeedAdapter;
 import cn.zlpro.cn.instanmaterial.utli.Utils;
 
-public class MainActivity extends AppCompatActivity
+public class MainActivity extends AppCompatActivity implements FeedAdapter.onFeedItemClickListener
 {
     private MenuItem inboxMenuItem;
     @Bind(R.id.toolbar)
@@ -62,7 +64,9 @@ public class MainActivity extends AppCompatActivity
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         rvFeed.setLayoutManager(linearLayoutManager);
         feedAdapter = new FeedAdapter(this);
+        feedAdapter.setonFeedItemClickListener(this);
         rvFeed.setAdapter(feedAdapter);
+
     }
 
     @Override
@@ -123,5 +127,21 @@ public class MainActivity extends AppCompatActivity
                 .setDuration(ANIM_DURATION_FAB)
                 .start();
         feedAdapter.updateItems();
+    }
+
+    @Override
+    public void onCommentsClick(View v, int position)
+    {
+        //跳转到评论列表
+        //传递动画过去设置不同的列表
+        int[] startingLaocation = new int[2];
+        v.getLocationOnScreen(startingLaocation);
+        Intent intent = new Intent(MainActivity.this,CommentsActivity.class);
+        //设置Y的坐标过去。
+        intent.putExtra(CommentsActivity.ARG_DRAWING_START_LOCATION,startingLaocation[1]);
+        startActivity(intent);
+
+        //关闭两者间的过度效果。
+        overridePendingTransition(0,0);
     }
 }

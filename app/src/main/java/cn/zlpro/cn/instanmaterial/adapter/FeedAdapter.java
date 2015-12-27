@@ -17,7 +17,7 @@ import cn.zlpro.cn.instanmaterial.view.SquaredImageView;
 /**
  * Created by 小白龙 on 2015/12/27 0027.
  */
-public class FeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
+public class FeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> implements View.OnClickListener
 {
     private static final int ANIMATED_ITEMS_COUNT = 2;
 
@@ -66,6 +66,8 @@ public class FeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
             holder.ivFeedCenter.setImageResource(R.drawable.img_feed_center_2);
             holder.ivFeedBottom.setImageResource(R.drawable.img_feed_bottom_2);
         }
+        holder.ivFeedBottom.setOnClickListener(this);
+        holder.ivFeedBottom.setTag(position);
     }
 
     @Override
@@ -73,6 +75,30 @@ public class FeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
     {
         return 20;
     }
+
+    //设置Item单机事件
+    @Override
+    public void onClick(View v)
+    {
+        if (v.getId() == R.id.ivFeedBottom)
+        {
+            if (itemListener != null)
+            {
+                itemListener.onCommentsClick(v,(int)v.getTag());
+            }
+        }
+    }
+
+    public void setonFeedItemClickListener(onFeedItemClickListener itemListener)
+    {
+        this.itemListener = itemListener;
+    }
+    private onFeedItemClickListener itemListener;
+    public interface onFeedItemClickListener
+    {
+        void onCommentsClick(View v, int position);
+    }
+
 
     public static class CellFeedViewHolder extends RecyclerView.ViewHolder {
         @Bind(R.id.ivFeedCenter)
