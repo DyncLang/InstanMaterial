@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">InstanMaterial</string>
+
+    <string name="user_profile_photo">http://media.xtwind.com/images/2015/12/18/a188d6b79236d5d9ea1e747012a63f3d.jpg</string>
 </resources>
