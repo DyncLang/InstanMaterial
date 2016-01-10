@@ -49,11 +49,16 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"/>
 
-            <Button
+            <cn.zlpro.cn.instanmaterial.view.SendCommentButton
                 android:id="@+id/btnSendComment"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Send"/>
+                android:layout_width="72dp"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="2dp"
+                android:layout_marginLeft="8dp"
+                android:background="@drawable/btn_send_comment"
+                android:elevation="4dp"
+                android:orientation="vertical"
+                />
         </LinearLayout>
     </LinearLayout>
 </RelativeLayout>

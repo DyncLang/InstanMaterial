@@ -3,65 +3,53 @@ package cn.zlpro.cn.instanmaterial.acitvity;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.OvershootInterpolator;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 
 import butterknife.Bind;
-import butterknife.ButterKnife;
 import cn.zlpro.cn.instanmaterial.R;
+import cn.zlpro.cn.instanmaterial.acitvity.base.BaseDrawerActivity;
 import cn.zlpro.cn.instanmaterial.adapter.FeedAdapter;
 import cn.zlpro.cn.instanmaterial.utli.Utils;
 
-public class MainActivity extends AppCompatActivity implements FeedAdapter.onFeedItemClickListener
-{
-    private MenuItem inboxMenuItem;
-    @Bind(R.id.toolbar)
-    Toolbar toolbar;
+public class MainActivity extends BaseDrawerActivity implements FeedAdapter.onFeedItemClickListener {
+
     @Bind(R.id.rvFeed)
     RecyclerView rvFeed;
     @Bind(R.id.btnCreate)
     ImageButton btnCreate;
-    @Bind(R.id.ivLogo)
-    ImageView ivLogo;
 
     private FeedAdapter feedAdapter;
 
     private boolean pendingIntroAnimation;
 
 
-
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ButterKnife.bind(this);
 
         if (savedInstanceState == null) {
             pendingIntroAnimation = true;
         }
-        setupToolbar();
         setupFeed();
 
     }
 
-    private void setupToolbar() {
-        setSupportActionBar(toolbar);
-        //设置toolber左边的图片
-        toolbar.setNavigationIcon(R.drawable.ic_menu_white);
-    }
 
     private void setupFeed() {
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this) {
+            //getExtraLayoutSpace将返回LayoutManager应该预留的额外空间（显示范围之外，应该额外缓存的空间）
+            @Override
+            protected int getExtraLayoutSpace(RecyclerView.State state) {
+                return 300;
+            }
+        };
         rvFeed.setLayoutManager(linearLayoutManager);
         feedAdapter = new FeedAdapter(this);
         feedAdapter.setonFeedItemClickListener(this);
@@ -70,11 +58,8 @@ public class MainActivity extends AppCompatActivity implements FeedAdapter.onFee
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu)
-    {
-        getMenuInflater().inflate(R.menu.menu_main,menu);
-        inboxMenuItem = menu.findItem(R.id.action_inbox);
-        inboxMenuItem.setActionView(R.layout.menu_item_view);
+    public boolean onCreateOptionsMenu(Menu menu) {
+        super.onCreateOptionsMenu(menu);
         if (pendingIntroAnimation) {
             pendingIntroAnimation = false;
             startIntroAnimation();
@@ -84,6 +69,7 @@ public class MainActivity extends AppCompatActivity implements FeedAdapter.onFee
 
 
     private long ANIM_DURATION_TOOLBAR = 300;
+
     private void startIntroAnimation() {
 
         //出现动画的逻辑：
@@ -93,18 +79,18 @@ public class MainActivity extends AppCompatActivity implements FeedAdapter.onFee
         btnCreate.setTranslationY(2 * getResources().getDimensionPixelOffset(R.dimen.btn_fab_size));
         int actionbarSize = Utils.dpToPx(56);
 
-        toolbar.setTranslationY(-actionbarSize);
-        ivLogo.setTranslationY(-actionbarSize);
-        inboxMenuItem.getActionView().setTranslationY(-actionbarSize);
-        toolbar.animate()
+        getToolbar().setTranslationY(-actionbarSize);
+        getIvLogo().setTranslationY(-actionbarSize);
+        getInboxMenuItem().getActionView().setTranslationY(-actionbarSize);
+        getToolbar().animate()
                 .translationY(0)
                 .setDuration(ANIM_DURATION_TOOLBAR)
                 .setStartDelay(300).start();
-        ivLogo.animate()
+        getIvLogo().animate()
                 .translationY(0)
                 .setDuration(ANIM_DURATION_TOOLBAR)
                 .setStartDelay(400).start();
-        inboxMenuItem.getActionView().animate()
+        getInboxMenuItem().getActionView().animate()
                 .translationY(0)
                 .setDuration(ANIM_DURATION_TOOLBAR)
                 .setStartDelay(500)
@@ -115,6 +101,7 @@ public class MainActivity extends AppCompatActivity implements FeedAdapter.onFee
                     }
                 })
                 .start();
+
     }
 
     private static final int ANIM_DURATION_FAB = 400;
@@ -130,18 +117,17 @@ public class MainActivity extends AppCompatActivity implements FeedAdapter.onFee
     }
 
     @Override
-    public void onCommentsClick(View v, int position)
-    {
+    public void onCommentsClick(View v, int position) {
         //跳转到评论列表
         //传递动画过去设置不同的列表
         int[] startingLaocation = new int[2];
         v.getLocationOnScreen(startingLaocation);
-        Intent intent = new Intent(MainActivity.this,CommentsActivity.class);
+        Intent intent = new Intent(MainActivity.this, CommentsActivity.class);
         //设置Y的坐标过去。
-        intent.putExtra(CommentsActivity.ARG_DRAWING_START_LOCATION,startingLaocation[1]);
+        intent.putExtra(CommentsActivity.ARG_DRAWING_START_LOCATION, startingLaocation[1]);
         startActivity(intent);
 
         //关闭两者间的过度效果。
-        overridePendingTransition(0,0);
+        overridePendingTransition(0, 0);
     }
 }
