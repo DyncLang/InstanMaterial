@@ -1,4 +1,4 @@
-package cn.zlpro.cn.instanmaterial.view;
+package cn.zlpro.cn.instanmaterial.ui.view;
 
 import android.content.Context;
 import android.util.AttributeSet;

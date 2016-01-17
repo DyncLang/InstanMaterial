@@ -1,4 +1,4 @@
-package cn.zlpro.cn.instanmaterial.adapter;
+package cn.zlpro.cn.instanmaterial.ui.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -13,7 +13,7 @@ import com.squareup.picasso.Picasso;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import cn.zlpro.cn.instanmaterial.R;
-import cn.zlpro.cn.instanmaterial.helper.RoundedTransformation;
+import cn.zlpro.cn.instanmaterial.ui.helper.RoundedTransformation;
 
 /**
  * Created by 小白龙 on 2015/12/27 0027.

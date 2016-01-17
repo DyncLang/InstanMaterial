@@ -1,4 +1,4 @@
-package cn.zlpro.cn.instanmaterial.helper;
+package cn.zlpro.cn.instanmaterial.ui.helper;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapShader;

@@ -1,4 +1,4 @@
-package cn.zlpro.cn.instanmaterial.acitvity;
+package cn.zlpro.cn.instanmaterial.ui.acitvity;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -13,8 +13,8 @@ import android.widget.ImageButton;
 
 import butterknife.Bind;
 import cn.zlpro.cn.instanmaterial.R;
-import cn.zlpro.cn.instanmaterial.acitvity.base.BaseDrawerActivity;
-import cn.zlpro.cn.instanmaterial.adapter.FeedAdapter;
+import cn.zlpro.cn.instanmaterial.ui.acitvity.base.BaseDrawerActivity;
+import cn.zlpro.cn.instanmaterial.ui.adapter.FeedAdapter;
 import cn.zlpro.cn.instanmaterial.utli.Utils;
 
 public class MainActivity extends BaseDrawerActivity implements FeedAdapter.onFeedItemClickListener {
@@ -37,6 +37,7 @@ public class MainActivity extends BaseDrawerActivity implements FeedAdapter.onFe
         if (savedInstanceState == null) {
             pendingIntroAnimation = true;
         }
+
         setupFeed();
 
     }

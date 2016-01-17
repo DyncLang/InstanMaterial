@@ -1,5 +1,6 @@
-package cn.zlpro.cn.instanmaterial.acitvity.base;
+package cn.zlpro.cn.instanmaterial.ui.acitvity.base;
 
+import android.content.Intent;
 import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
@@ -9,7 +10,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.Toast;
 
 import com.orhanobut.logger.Logger;
 import com.squareup.picasso.Picasso;
@@ -18,7 +18,8 @@ import butterknife.Bind;
 import butterknife.BindDimen;
 import butterknife.BindString;
 import cn.zlpro.cn.instanmaterial.R;
-import cn.zlpro.cn.instanmaterial.helper.CircleTransformation;
+import cn.zlpro.cn.instanmaterial.ui.acitvity.NewsAcitvity;
+import cn.zlpro.cn.instanmaterial.ui.helper.CircleTransformation;
 
 /**
  * Created by 小白龙 on 2016/1/10 0010.
@@ -39,6 +40,8 @@ public class BaseDrawerActivity extends BaseActivity {
     @Override
     public void setContentView( int layoutResID) {
         super.setContentViewWithoutInject(R.layout.activity_drawer);
+
+        //很经典的布局填充方式
         ViewGroup viewGroup = (ViewGroup) findViewById(R.id.flContentRoot);
         LayoutInflater.from(this).inflate(layoutResID, viewGroup, true);
         bindViews();
@@ -65,7 +68,8 @@ public class BaseDrawerActivity extends BaseActivity {
         llGlobalMenuHeader.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Logger.e("HerderView"+profilePhoto);
+                Intent intent = new Intent(BaseDrawerActivity.this, NewsAcitvity.class);
+                startActivity(intent);
             }
         });
 

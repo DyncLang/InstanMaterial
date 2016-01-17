@@ -1,4 +1,4 @@
-package cn.zlpro.cn.instanmaterial.acitvity;
+package cn.zlpro.cn.instanmaterial.ui.acitvity;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -7,7 +7,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.view.animation.AccelerateInterpolator;
@@ -19,9 +18,9 @@ import com.orhanobut.logger.Logger;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import cn.zlpro.cn.instanmaterial.R;
-import cn.zlpro.cn.instanmaterial.acitvity.base.BaseActivity;
-import cn.zlpro.cn.instanmaterial.adapter.CommentsAdapter;
-import cn.zlpro.cn.instanmaterial.view.SendCommentButton;
+import cn.zlpro.cn.instanmaterial.ui.acitvity.base.BaseActivity;
+import cn.zlpro.cn.instanmaterial.ui.adapter.CommentsAdapter;
+import cn.zlpro.cn.instanmaterial.ui.view.SendCommentButton;
 
 public class CommentsActivity extends BaseActivity implements SendCommentButton.OnSendClickListener {
 

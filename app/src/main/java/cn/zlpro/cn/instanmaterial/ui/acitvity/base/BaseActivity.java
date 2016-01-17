@@ -1,4 +1,4 @@
-package cn.zlpro.cn.instanmaterial.acitvity.base;
+package cn.zlpro.cn.instanmaterial.ui.acitvity.base;
 
 import android.content.Context;
 import android.support.annotation.LayoutRes;
@@ -57,9 +57,12 @@ public class BaseActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+        //设置菜单
         getMenuInflater().inflate(R.menu.menu_main,menu);
         inboxMenuItem = menu.findItem(R.id.action_inbox);
+        //
         inboxMenuItem.setActionView(R.layout.menu_item_view);
+
         return true;
     }
 

@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:src="@drawable/ic_feed_top"/>
 
-        <cn.zlpro.cn.instanmaterial.view.SquaredImageView
+        <cn.zlpro.cn.instanmaterial.ui.view.SquaredImageView
             android:id="@+id/ivFeedCenter"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>

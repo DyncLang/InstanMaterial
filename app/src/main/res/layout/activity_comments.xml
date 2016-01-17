@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="cn.zlpro.cn.instanmaterial.acitvity.CommentsActivity">
+    tools:context=".ui.acitvity.CommentsActivity">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
@@ -49,7 +49,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"/>
 
-            <cn.zlpro.cn.instanmaterial.view.SendCommentButton
+            <cn.zlpro.cn.instanmaterial.ui.view.SendCommentButton
                 android:id="@+id/btnSendComment"
                 android:layout_width="72dp"
                 android:layout_height="match_parent"
