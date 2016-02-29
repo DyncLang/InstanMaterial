@@ -15,13 +15,14 @@ public class FragmentFactory {
         if (fragment == null) {
             switch (position) {
                 case 0:
-                    fragment = new NewsFragment();
+                    fragment = new GankIoFragment();
+                    break;
                 case 1:
                     fragment = new NewsFragment();
+                    break;
                 case 2:
                     fragment = new NewsFragment();
-                case 3:
-                    fragment = new NewsFragment();
+                    break;
                 default:
                     fragment = new NewsFragment();
                     break;

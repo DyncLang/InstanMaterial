@@ -25,7 +25,6 @@ public class MainActivity extends BaseDrawerActivity implements FeedAdapter.onFe
     ImageButton btnCreate;
 
     private FeedAdapter feedAdapter;
-
     private boolean pendingIntroAnimation;
 
 

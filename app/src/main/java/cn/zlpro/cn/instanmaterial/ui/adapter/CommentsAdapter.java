@@ -18,31 +18,27 @@ import cn.zlpro.cn.instanmaterial.ui.helper.RoundedTransformation;
 /**
  * Created by 小白龙 on 2015/12/27 0027.
  */
-public class CommentsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
-{
+public class CommentsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private Context context;
-    private int itemsCount=5;
+    private int itemsCount = 5;
     private int avatarSize;
-    public CommentsAdapter(Context context)
-    {
-       this.context = context;
+
+    public CommentsAdapter(Context context) {
+        this.context = context;
         //初始化设置图片的大小
         avatarSize = context.getResources().getDimensionPixelSize(R.dimen.btn_fab_size);
     }
 
     @Override
-    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType)
-    {
+    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         final View itemView = LayoutInflater.from(context).inflate(R.layout.item_comment, parent, false);
-        return new CommentsViewHolder(itemView) ;
+        return new CommentsViewHolder(itemView);
     }
 
     @Override
-    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position)
-    {
+    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         CommentsViewHolder commentsViewHolder = (CommentsViewHolder) holder;
-        switch (position%3)
-        {
+        switch (position % 3) {
             case 0:
                 commentsViewHolder.tvComment.setText("Lorem ipsum dolor sit amet, consectetur adipisicing elit.");
                 break;
@@ -64,8 +60,7 @@ public class CommentsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     }
 
     @Override
-    public int getItemCount()
-    {
+    public int getItemCount() {
         return itemsCount;
     }
 
@@ -74,15 +69,13 @@ public class CommentsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         notifyDataSetChanged();
     }
 
-    public static class CommentsViewHolder extends RecyclerView.ViewHolder
-    {
+    public static class CommentsViewHolder extends RecyclerView.ViewHolder {
         @Bind(R.id.ivUserAvatar)
-       public ImageView ivUserAvator;
+        public ImageView ivUserAvator;
         @Bind(R.id.tvComment)
         public TextView tvComment;
 
-        public CommentsViewHolder(View itemView)
-        {
+        public CommentsViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
         }

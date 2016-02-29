@@ -17,22 +17,20 @@ import cn.zlpro.cn.instanmaterial.ui.view.SquaredImageView;
 /**
  * Created by 小白龙 on 2015/12/27 0027.
  */
-public class FeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> implements View.OnClickListener
-{
+public class FeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> implements View.OnClickListener {
     private static final int ANIMATED_ITEMS_COUNT = 2;
 
     private Context context;
     private int lastAnimatedPosition = -1;
     private int itemsCount = 0;
-    public FeedAdapter(Context context)
-    {
+
+    public FeedAdapter(Context context) {
         this.context = context;
     }
 
     @Override
-    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType)
-    {
-        final View view = LayoutInflater.from(context).inflate(R.layout.item_feed, parent, false);
+    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(context).inflate(R.layout.item_feed, parent, false);
         return new CellFeedViewHolder(view);
     }
 
@@ -52,8 +50,7 @@ public class FeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> i
     }
 
     @Override
-    public void onBindViewHolder(RecyclerView.ViewHolder viewHolder, int position)
-    {
+    public void onBindViewHolder(RecyclerView.ViewHolder viewHolder, int position) {
 
         //这个方法用来设置我们的内容
         //这里的itemView就是我们设置的根布局的View
@@ -71,31 +68,27 @@ public class FeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> i
     }
 
     @Override
-    public int getItemCount()
-    {
+    public int getItemCount() {
         return 20;
     }
 
     //设置Item单机事件
     @Override
-    public void onClick(View v)
-    {
-        if (v.getId() == R.id.ivFeedBottom)
-        {
-            if (itemListener != null)
-            {
-                itemListener.onCommentsClick(v,(int)v.getTag());
+    public void onClick(View v) {
+        if (v.getId() == R.id.ivFeedBottom) {
+            if (itemListener != null) {
+                itemListener.onCommentsClick(v, (int) v.getTag());
             }
         }
     }
 
-    public void setonFeedItemClickListener(onFeedItemClickListener itemListener)
-    {
+    public void setonFeedItemClickListener(onFeedItemClickListener itemListener) {
         this.itemListener = itemListener;
     }
+
     private onFeedItemClickListener itemListener;
-    public interface onFeedItemClickListener
-    {
+
+    public interface onFeedItemClickListener {
         void onCommentsClick(View v, int position);
     }
 
@@ -105,6 +98,7 @@ public class FeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> i
         SquaredImageView ivFeedCenter;
         @Bind(R.id.ivFeedBottom)
         ImageView ivFeedBottom;
+
         public CellFeedViewHolder(View view) {
             super(view);
             ButterKnife.bind(this, view);

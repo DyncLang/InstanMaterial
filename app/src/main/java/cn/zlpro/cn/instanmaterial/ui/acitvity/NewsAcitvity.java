@@ -3,10 +3,11 @@ package cn.zlpro.cn.instanmaterial.ui.acitvity;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 
@@ -17,9 +18,9 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import cn.zlpro.cn.instanmaterial.R;
 import cn.zlpro.cn.instanmaterial.ui.fragment.FragmentFactory;
-import cn.zlpro.cn.instanmaterial.ui.fragment.NewsFragment;
 
-public class NewsAcitvity extends FragmentActivity {
+public class NewsAcitvity extends AppCompatActivity {
+    String TAG = "NewsActivity";
     @Bind(R.id.tl_tabs)
     public TabLayout mTabLayout;
     @Bind(R.id.vp_view)
@@ -37,9 +38,9 @@ public class NewsAcitvity extends FragmentActivity {
         setContentView(R.layout.activity_news_acitvity);
 
         ButterKnife.bind(this);
-        
+
         //卡片标题
-        mTitleList.add("新浪");
+        mTitleList.add("干货");
         mTitleList.add("知乎");
         mTitleList.add("开发者");
 
@@ -64,6 +65,7 @@ public class NewsAcitvity extends FragmentActivity {
 
         @Override
         public Fragment getItem(int position) {
+            Log.e(TAG, "getItem: " + position);
             return FragmentFactory.createFragment(position);
         }
 
