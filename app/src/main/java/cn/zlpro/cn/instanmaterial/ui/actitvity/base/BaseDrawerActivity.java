@@ -1,7 +1,6 @@
-package cn.zlpro.cn.instanmaterial.ui.acitvity.base;
+package cn.zlpro.cn.instanmaterial.ui.actitvity.base;
 
 import android.content.Intent;
-import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.view.Gravity;
@@ -11,14 +10,13 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
-import com.orhanobut.logger.Logger;
 import com.squareup.picasso.Picasso;
 
 import butterknife.Bind;
 import butterknife.BindDimen;
 import butterknife.BindString;
 import cn.zlpro.cn.instanmaterial.R;
-import cn.zlpro.cn.instanmaterial.ui.acitvity.NewsAcitvity;
+import cn.zlpro.cn.instanmaterial.ui.actitvity.NewsAcitvity;
 import cn.zlpro.cn.instanmaterial.ui.helper.CircleTransformation;
 
 /**

@@ -35,7 +35,6 @@ public class SquaredImageView extends ImageView
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec)
     {
-        //保证是正方形？
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
         int width = getMeasuredWidth();
         setMeasuredDimension(width, width);

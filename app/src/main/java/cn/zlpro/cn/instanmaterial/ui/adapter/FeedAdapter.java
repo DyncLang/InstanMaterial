@@ -19,7 +19,6 @@ import cn.zlpro.cn.instanmaterial.ui.view.SquaredImageView;
  */
 public class FeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> implements View.OnClickListener {
     private static final int ANIMATED_ITEMS_COUNT = 2;
-
     private Context context;
     private int lastAnimatedPosition = -1;
     private int itemsCount = 0;

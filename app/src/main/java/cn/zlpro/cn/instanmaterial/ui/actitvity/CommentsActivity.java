@@ -1,24 +1,20 @@
-package cn.zlpro.cn.instanmaterial.ui.acitvity;
+package cn.zlpro.cn.instanmaterial.ui.actitvity;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.LinearLayout;
 
-import com.orhanobut.logger.Logger;
-
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import cn.zlpro.cn.instanmaterial.R;
-import cn.zlpro.cn.instanmaterial.ui.acitvity.base.BaseActivity;
+import cn.zlpro.cn.instanmaterial.ui.actitvity.base.BaseActivity;
 import cn.zlpro.cn.instanmaterial.ui.adapter.CommentsAdapter;
 import cn.zlpro.cn.instanmaterial.ui.view.SendCommentButton;
 

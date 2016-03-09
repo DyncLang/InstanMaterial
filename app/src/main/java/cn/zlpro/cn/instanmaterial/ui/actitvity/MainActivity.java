@@ -1,4 +1,4 @@
-package cn.zlpro.cn.instanmaterial.ui.acitvity;
+package cn.zlpro.cn.instanmaterial.ui.actitvity;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -13,7 +13,7 @@ import android.widget.ImageButton;
 
 import butterknife.Bind;
 import cn.zlpro.cn.instanmaterial.R;
-import cn.zlpro.cn.instanmaterial.ui.acitvity.base.BaseDrawerActivity;
+import cn.zlpro.cn.instanmaterial.ui.actitvity.base.BaseDrawerActivity;
 import cn.zlpro.cn.instanmaterial.ui.adapter.FeedAdapter;
 import cn.zlpro.cn.instanmaterial.utli.Utils;
 

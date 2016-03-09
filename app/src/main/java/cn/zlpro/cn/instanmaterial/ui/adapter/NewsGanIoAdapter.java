@@ -2,41 +2,55 @@ package cn.zlpro.cn.instanmaterial.ui.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
+import java.util.List;
+
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import cn.zlpro.cn.instanmaterial.R;
+import cn.zlpro.cn.instanmaterial.model.enter.MEIZI;
 
 /**
  * Created by Xiao_Bailong on 2016/2/29.
  */
-public class NewsGanIoAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class NewsGanIoAdapter extends RecyclerView.Adapter<NewsGanIoAdapter.GanIoViewHolder> {
 
     private Context context;
+    private List<MEIZI> meiziList;
+    private int avatarSize;
 
-    public NewsGanIoAdapter(Context context) {
+    public NewsGanIoAdapter(Context context, List<MEIZI> meiziList) {
         this.context = context;
+        this.meiziList = meiziList;
+        avatarSize = context.getResources().getDimensionPixelSize(R.dimen.btn_fab_size);
     }
 
     @Override
-    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = View.inflate(context, R.layout.item_gankio, parent);
+    public NewsGanIoAdapter.GanIoViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        final View view = LayoutInflater.from(context).inflate(R.layout.item_gankio, parent, false);
         return new GanIoViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-
+    public void onBindViewHolder(GanIoViewHolder holder, int position) {
+        MEIZI meizi = meiziList.get(position);
+        //设置图片大小；
+        Picasso.with(context)
+                .load(meizi.getUrl())
+                .into(holder.ivMeiZi);
     }
 
     @Override
     public int getItemCount() {
-        return 100;
+        return meiziList.size();
     }
 
     /**
@@ -44,15 +58,15 @@ public class NewsGanIoAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
      */
     public static class GanIoViewHolder extends RecyclerView.ViewHolder {
         @Bind(R.id.iv_meizi)
-        ImageView ivMeiZi;
+        public ImageView ivMeiZi;
         @Bind(R.id.rl_gankio)
-        RelativeLayout rlGankio;
+        public RelativeLayout rlGankio;
         @Bind(R.id.tv_time)
-        TextView tvTime;
+        public TextView tvTime;
         @Bind(R.id.tv_desc)
-        TextView tvDesc;
+        public TextView tvDesc;
         @Bind(R.id.tv_who)
-        TextView tvWho;
+        public TextView tvWho;
 
         public GanIoViewHolder(View itemView) {
             super(itemView);

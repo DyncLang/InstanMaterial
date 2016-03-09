@@ -3,6 +3,7 @@ package cn.zlpro.cn.instanmaterial.http;
 import android.os.Handler;
 import android.os.Looper;
 
+import com.google.gson.Gson;
 import com.squareup.okhttp.Call;
 import com.squareup.okhttp.Callback;
 import com.squareup.okhttp.OkHttpClient;
@@ -18,10 +19,12 @@ public class OkHttpContnent {
     private static OkHttpContnent mInstatnce;
     private Handler mHandlerDelively;
     private OkHttpClient mOkHttpClient;
+    public Gson gson;
 
     private OkHttpContnent() {
         mHandlerDelively = new Handler(Looper.getMainLooper());
         mOkHttpClient = new OkHttpClient();
+        gson = new Gson();
     }
 
     public static OkHttpContnent getmInstatnce() {
@@ -60,8 +63,6 @@ public class OkHttpContnent {
     public static void getAsyn(String url, ResultCallback callback) {
         getmInstatnce()._getAsyn(url, callback);
     }
-
-
 
 
     /**
