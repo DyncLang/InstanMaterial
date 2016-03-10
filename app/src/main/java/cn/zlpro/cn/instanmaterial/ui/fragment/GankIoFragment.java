@@ -1,9 +1,12 @@
 package cn.zlpro.cn.instanmaterial.ui.fragment;
 
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+
+import com.orhanobut.logger.Logger;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,8 +19,10 @@ import cn.zlpro.cn.instanmaterial.ui.adapter.NewsGanIoAdapter;
 import cn.zlpro.cn.instanmaterial.ui.fragment.base.BaseFragment;
 import cn.zlpro.cn.instanmaterial.view.GankIoView;
 
-public class NewsFragment extends BaseFragment implements SwipeRefreshLayout.OnRefreshListener, GankIoView {
-
+/**
+ * Created by Xiao_Bailong on 2016/2/29.
+ */
+public class GankIoFragment extends BaseFragment implements SwipeRefreshLayout.OnRefreshListener, GankIoView {
     String TAG = this.getClass().getSimpleName();
     @Bind(R.id.rv_ganio)
     RecyclerView rvGanio = null;
@@ -56,6 +61,7 @@ public class NewsFragment extends BaseFragment implements SwipeRefreshLayout.OnR
         LinearLayoutManager layoutManager = new LinearLayoutManager(context);
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         rvGanio.setLayoutManager(layoutManager);
+        rvGanio.setItemAnimator(new DefaultItemAnimator());
         rvGanio.setAdapter(mAdapter);
 
         //设置下拉刷新
@@ -64,7 +70,7 @@ public class NewsFragment extends BaseFragment implements SwipeRefreshLayout.OnR
         swipeRefreshLayout.post(new Runnable() {
             @Override
             public void run() {
-                //设置自动刷新  回掉刷新方法；
+                //设置自动刷新
                 swipeRefreshLayout.setRefreshing(true);
                 gankIoPresenter.fetchMeiziData(page);
             }
@@ -101,12 +107,11 @@ public class NewsFragment extends BaseFragment implements SwipeRefreshLayout.OnR
 
     @Override
     public void ShowMeiZiList(List<MEIZI> meiziList) {
-        Log.e(TAG, "ShowMeiZiList: " + meiziList.size());
+        Logger.e(meiziList.get(0).toString());
         page++;//加到下一页面
         this.meiziList.addAll(meiziList);
         mAdapter.notifyDataSetChanged();
     }
-
 
 
 }

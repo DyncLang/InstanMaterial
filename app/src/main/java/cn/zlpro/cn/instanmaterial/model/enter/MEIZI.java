@@ -1,5 +1,7 @@
 package cn.zlpro.cn.instanmaterial.model.enter;
 
+import java.util.Date;
+
 /**
  * Created by Xiao_Bailong on 2016/3/6.
  */
@@ -18,67 +20,26 @@ public class MEIZI {
      * who : 张涵宇
      */
 
-    private String createdAt;
-    private String desc;
-    private String publishedAt;
-    private String type;
-    private String url;
-    private boolean used;
-    private String who;
 
-    public void setCreatedAt(String createdAt) {
-        this.createdAt = createdAt;
-    }
+    public String desc;
 
-    public void setDesc(String desc) {
-        this.desc = desc;
-    }
+    public String type;
+    public String url;
+    public boolean used;
+    public String who;
+    public Date publishedAt;
+    public Date createdAt;
 
-    public void setPublishedAt(String publishedAt) {
-        this.publishedAt = publishedAt;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
-    public void setUsed(boolean used) {
-        this.used = used;
-    }
-
-    public void setWho(String who) {
-        this.who = who;
-    }
-
-    public String getCreatedAt() {
-        return createdAt;
-    }
-
-    public String getDesc() {
-        return desc;
-    }
-
-    public String getPublishedAt() {
-        return publishedAt;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public String getUrl() {
-        return url;
-    }
-
-    public boolean isUsed() {
-        return used;
-    }
-
-    public String getWho() {
-        return who;
+    @Override
+    public String toString() {
+        return "MEIZI{" +
+                "createdAt=" + createdAt +
+                ", desc='" + desc + '\'' +
+                ", publishedAt=" + publishedAt +
+                ", type='" + type + '\'' +
+                ", url='" + url + '\'' +
+                ", used=" + used +
+                ", who='" + who + '\'' +
+                '}';
     }
 }

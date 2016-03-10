@@ -15,7 +15,7 @@ public class FragmentFactory {
         if (fragment == null) {
             switch (position) {
                 case 0:
-                    fragment = new NewsFragment();
+                    fragment = new GankIoFragment();
                     break;
                 case 1:
                     fragment = new ZhiHuFragment();
@@ -24,7 +24,7 @@ public class FragmentFactory {
                     fragment = new GankIoFragment();
                     break;
                 default:
-                   // fragment = new NewsFragment();
+                    // fragment = new NewsFragment();
                     break;
             }
             mFragmeent.put(position, fragment);
