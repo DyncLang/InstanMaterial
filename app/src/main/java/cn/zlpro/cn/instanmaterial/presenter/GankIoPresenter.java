@@ -3,7 +3,6 @@ package cn.zlpro.cn.instanmaterial.presenter;
 import android.content.Context;
 
 import com.google.gson.Gson;
-import com.squareup.okhttp.Request;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -18,6 +17,7 @@ import cn.zlpro.cn.instanmaterial.http.OkHttpContnent;
 import cn.zlpro.cn.instanmaterial.model.enter.MEIZI;
 import cn.zlpro.cn.instanmaterial.presenter.base.BasePresenter;
 import cn.zlpro.cn.instanmaterial.view.GankIoView;
+import okhttp3.Request;
 
 /**
  * Created by Xiao_Bailong on 2016/3/9.
@@ -41,7 +41,8 @@ public class GankIoPresenter extends BasePresenter<GankIoView> {
         OkHttpContnent.getAsyn(url, new OkHttpContnent.ResultCallback<String>() {
             @Override
             public void onErroe(Request request, IOException e) {
-
+                view.hideProgress();
+                view.showNoMoreView();
             }
 
             @Override
@@ -57,12 +58,12 @@ public class GankIoPresenter extends BasePresenter<GankIoView> {
                         meiziList.add(meizi);
                     }
                     //获取成功
-                    view.ShowMeiZiList(meiziList);
                     if (meiziList.size() == 0) {
-                        view.showProgress();
+                        view.showNoMoreView();
                     } else {
-                        view.hideProgress();
+                        view.ShowMeiZiList(meiziList);
                     }
+                    view.hideProgress();
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }

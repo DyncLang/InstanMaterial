@@ -34,7 +34,7 @@ public class ZhiHuFragment extends BaseFragment implements SwipeRefreshLayout.On
 
     @Override
     protected int provideViewLayoutId() {
-        return R.layout.fragment_ganio;
+        return R.layout.fragment_news;
     }
 
     @Override
@@ -92,6 +92,11 @@ public class ZhiHuFragment extends BaseFragment implements SwipeRefreshLayout.On
         if (swipeRefreshLayout.isRefreshing()) {
             swipeRefreshLayout.setRefreshing(false);
         }
+    }
+
+    @Override
+    public void showNoMoreView() {
+
     }
 
     @Override

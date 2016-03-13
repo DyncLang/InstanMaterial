@@ -55,6 +55,7 @@ public class NewsGanIoAdapter extends RecyclerView.Adapter<NewsGanIoAdapter.GanI
         holder.ivMeiZi.setBackgroundColor(Color.argb(204, red, green, blue));
         holder.tvWho.setText(meizi.who);
         holder.tvTime.setText(DateUtil.toDateTimeStr(meizi.publishedAt));
+
         //设置图片大小；
         Picasso.with(context)
                 .load(meizi.url)
