@@ -12,7 +12,10 @@ import cn.zlpro.cn.instanmaterial.view.base.IBaseView;
 public interface GankIoView extends IBaseView {
 
     void showProgress();
+
     void hideProgress();
+
+    void showNoMoreView();
 
     void showErrowView();
 

@@ -35,7 +35,7 @@ public class NewsFragment extends BaseFragment implements SwipeRefreshLayout.OnR
 
     @Override
     protected int provideViewLayoutId() {
-        return R.layout.fragment_ganio;
+        return R.layout.fragment_zhihu;
     }
 
     @Override
@@ -95,18 +95,24 @@ public class NewsFragment extends BaseFragment implements SwipeRefreshLayout.OnR
     }
 
     @Override
+    public void showNoMoreView() {
+
+    }
+
+    @Override
     public void showErrowView() {
+        //加载错误 一般可能是网络错误
 
     }
 
     @Override
     public void ShowMeiZiList(List<MEIZI> meiziList) {
-        Log.e(TAG, "ShowMeiZiList: " + meiziList.size());
+
         page++;//加到下一页面
+        this.meiziList.clear();
         this.meiziList.addAll(meiziList);
         mAdapter.notifyDataSetChanged();
     }
-
 
 
 }

@@ -9,12 +9,14 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import butterknife.ButterKnife;
+import cn.zlpro.cn.instanmaterial.presenter.base.BasePresenter;
 
 /**
  * Created by Xiao_Bailong on 2016/1/17.
  */
-public abstract class BaseFragment extends Fragment {
+public abstract class BaseFragment<T extends BasePresenter> extends Fragment {
     public Context context;
+    public T presenter;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {

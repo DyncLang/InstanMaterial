@@ -41,7 +41,8 @@ public class GankIoPresenter extends BasePresenter<GankIoView> {
         OkHttpContnent.getAsyn(url, new OkHttpContnent.ResultCallback<String>() {
             @Override
             public void onErroe(Request request, IOException e) {
-
+                view.hideProgress();
+                view.showNoMoreView();
             }
 
             @Override
@@ -57,12 +58,12 @@ public class GankIoPresenter extends BasePresenter<GankIoView> {
                         meiziList.add(meizi);
                     }
                     //获取成功
-                    view.ShowMeiZiList(meiziList);
                     if (meiziList.size() == 0) {
-                        view.showProgress();
+                        view.showNoMoreView();
                     } else {
-                        view.hideProgress();
+                        view.ShowMeiZiList(meiziList);
                     }
+                    view.hideProgress();
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
