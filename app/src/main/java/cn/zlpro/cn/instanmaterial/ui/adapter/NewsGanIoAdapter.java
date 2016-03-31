@@ -61,7 +61,7 @@ public class NewsGanIoAdapter extends RecyclerView.Adapter<NewsGanIoAdapter.GanI
                 .load(meizi.url)
                 .into(holder.ivMeiZi);
 
-        //设置条目显示动画
+        //设置条目显示动画---
         showItemAnimation(holder, position);
     }
 
